@@ -1,0 +1,15 @@
+package com.uce.edu.demo.repository;
+
+import com.uce.edu.demo.modelo.Propietario;
+
+public interface IPropietarioRepository {
+
+	public void insertar(Propietario p);
+
+	public Propietario buscar(String nombre);
+
+	public void actualizar(Propietario p);
+
+	public void eliminar(String nombre);
+	
+}

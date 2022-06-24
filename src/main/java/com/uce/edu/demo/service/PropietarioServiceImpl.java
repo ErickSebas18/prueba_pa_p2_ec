@@ -1,23 +1,27 @@
 package com.uce.edu.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.modelo.Propietario;
+import com.uce.edu.demo.repository.IPropietarioRepository;
 
 @Service
-public class PropietarioServiceImpl implements IPropietarioService {
+public class PropietarioServiceImpl implements IPropietarioService{
 
+	@Autowired 
+	private IPropietarioRepository propietarioRepository;
 	
 	@Override
-	public void crearPropietario(Propietario p) {
+	public void crear(Propietario propietario) {
 		// TODO Auto-generated method stub
-		System.out.println("Se ha insertado un propietario: " + p);
+		this.propietarioRepository.crear(propietario);
 	}
 
 	@Override
-	public void eliminarPropietario(String nombre) {
+	public void eliminar(String cedula) {
 		// TODO Auto-generated method stub
-		System.out.println("Se ha eliminado un propietario: " + nombre);
+		this.propietarioRepository.eliminar(cedula);
 	}
 
 }

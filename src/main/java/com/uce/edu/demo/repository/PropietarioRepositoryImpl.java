@@ -1,5 +1,7 @@
 package com.uce.edu.demo.repository;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Repository;
 
 import com.uce.edu.demo.modelo.Propietario;
@@ -8,29 +10,26 @@ import com.uce.edu.demo.modelo.Propietario;
 public class PropietarioRepositoryImpl implements IPropietarioRepository {
 
 	@Override
-	public void insertar(Propietario p) {
+	public void crear(Propietario propietario) {
 		// TODO Auto-generated method stub
-		System.out.println("Se ha insertado un nuevo Propietario: " + p);
+		System.out.println("Se crea el propietario: "+propietario);
 	}
 
 	@Override
-	public Propietario buscar(String nombre) {
+	public void eliminar(String cedula) {
+		// TODO Auto-generated method stub
+		System.out.println("Se crea el propietario con cedula: "+cedula);
+	}
+
+	@Override
+	public Propietario consultar(String cedula) {
 		// TODO Auto-generated method stub
 		Propietario p = new Propietario();
-		p.setCedula("17561465");
+		p.setApellido("Chávez");
+		p.setNombre("Erick");
+		p.setFechaNacimiento(LocalDateTime.now());
+		p.setCedula(cedula);
 		return p;
-	}
-
-	@Override
-	public void actualizar(Propietario p) {
-		// TODO Auto-generated method stub
-		System.out.println("Se ha actualizado el Propietario: " + p);
-	}
-
-	@Override
-	public void eliminar(String nombre) {
-		// TODO Auto-generated method stub
-		System.out.println("Se ha eliminado un Propietario: " + nombre);
 	}
 
 }

@@ -4,11 +4,11 @@ import com.uce.edu.demo.modelo.Vehiculo;
 
 public interface IVehiculoService {
 
-	public void insertar(Vehiculo v);
+	public void insertar(Vehiculo vehiculo);
 
-	public Vehiculo buscar(String modelo);
+	public void actualizar(Vehiculo vehiculo);
 
-	public void actualizar(Vehiculo v);
+	public void eliminar(String placa);
 
-	public void eliminar(String modelo);
+	public Vehiculo buscar(String placa);
 }

@@ -1,12 +1,24 @@
-package com.uce.edu.demo.modelo;
+package com.uce.edu.demo.repository.modelo;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="propietario")
 public class Propietario {
 
+	@Column(name = "prop_nombre")
 	private String nombre;
+	@Column(name = "prop_apellido")
 	private String apellido;
+	@Id
+	@Column(name = "prop_cedula")
 	private String cedula;
+	@Column(name = "prop_fecha_Nacimiento")
 	private LocalDateTime fechaNacimiento;
 
 	// SET Y GET

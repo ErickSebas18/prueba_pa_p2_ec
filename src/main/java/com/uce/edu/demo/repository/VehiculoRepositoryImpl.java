@@ -1,42 +1,42 @@
 package com.uce.edu.demo.repository;
 
-import java.math.BigDecimal;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.uce.edu.demo.modelo.Vehiculo;
+import com.uce.edu.demo.repository.modelo.Vehiculo;
 
 @Repository
+@Transactional
 public class VehiculoRepositoryImpl implements IVehiculoRepository {
 
+	@PersistenceContext
+	private EntityManager entityManager;
+	
 	@Override
 	public void insertar(Vehiculo vehiculo) {
 		// TODO Auto-generated method stub
-		System.out.println("Se inserta el vehiculo: " + vehiculo);
+		this.entityManager.persist(vehiculo);
 	}
 
 	@Override
 	public void actualizar(Vehiculo vehiculo) {
 		// TODO Auto-generated method stub
-		System.out.println("Se actualiza el vehiculo: " + vehiculo);
+		this.entityManager.merge(vehiculo);
 	}
 
 	@Override
 	public void eliminar(String placa) {
 		// TODO Auto-generated method stub
-		System.out.println("Se elimina el vehiculo con placa: " + placa);
+		this.entityManager.remove(placa);
 	}
 
 	@Override
 	public Vehiculo buscar(String placa) {
 		// TODO Auto-generated method stub
-		System.out.println("Se busca la placa: " + placa);
-		Vehiculo vehi = new Vehiculo();
-		vehi.setPlaca(placa);
-		vehi.setMarca("Ford");
-		vehi.setTipo("P");
-		vehi.setPrecio(new BigDecimal(20000));
-		return vehi;
+		return this.entityManager.find(Vehiculo.class, placa);
 	}
 
 }

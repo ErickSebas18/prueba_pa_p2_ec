@@ -1,35 +1,36 @@
 package com.uce.edu.demo.repository;
 
-import java.time.LocalDateTime;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.uce.edu.demo.modelo.Propietario;
+import com.uce.edu.demo.repository.modelo.Propietario;
 
 @Repository
+@Transactional
 public class PropietarioRepositoryImpl implements IPropietarioRepository {
 
+	@PersistenceContext
+	private EntityManager entityManager;
+	
 	@Override
 	public void crear(Propietario propietario) {
 		// TODO Auto-generated method stub
-		System.out.println("Se crea el propietario: "+propietario);
+		this.entityManager.persist(propietario);
 	}
 
 	@Override
 	public void eliminar(String cedula) {
 		// TODO Auto-generated method stub
-		System.out.println("Se crea el propietario con cedula: "+cedula);
+		this.entityManager.remove(cedula);
 	}
 
 	@Override
 	public Propietario consultar(String cedula) {
 		// TODO Auto-generated method stub
-		Propietario p = new Propietario();
-		p.setApellido("Chávez");
-		p.setNombre("Erick");
-		p.setFechaNacimiento(LocalDateTime.now());
-		p.setCedula(cedula);
-		return p;
+		return this.entityManager.find(Propietario.class, cedula);
 	}
 
 }

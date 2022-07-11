@@ -1,6 +1,6 @@
 package com.uce.edu.demo.repository;
 
-import com.uce.edu.demo.modelo.Vehiculo;
+import com.uce.edu.demo.repository.modelo.Vehiculo;
 
 public interface IVehiculoRepository {
 

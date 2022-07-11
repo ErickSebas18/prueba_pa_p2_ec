@@ -1,6 +1,6 @@
 package com.uce.edu.demo.repository;
 
-import com.uce.edu.demo.modelo.Matricula;
+import com.uce.edu.demo.repository.modelo.Matricula;
 
 public interface IMatriculaRepository {
 

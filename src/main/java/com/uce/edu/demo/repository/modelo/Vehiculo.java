@@ -1,12 +1,24 @@
-package com.uce.edu.demo.modelo;
+package com.uce.edu.demo.repository.modelo;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "vehiculo")
 public class Vehiculo {
 
+	@Column(name = "vehi_marca")
 	private String marca;
+	@Id
+	@Column(name = "vehi_placa")
 	private String placa;
+	@Column(name = "vehi_tipo")
 	private String tipo;
+	@Column(name = "vehi_precio")
 	private BigDecimal precio;
 
 	// SET Y GET

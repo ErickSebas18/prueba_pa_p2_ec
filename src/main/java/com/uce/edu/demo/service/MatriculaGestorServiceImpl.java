@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.uce.edu.demo.modelo.Matricula;
-import com.uce.edu.demo.modelo.Propietario;
-import com.uce.edu.demo.modelo.Vehiculo;
 import com.uce.edu.demo.repository.IMatriculaRepository;
 import com.uce.edu.demo.repository.IPropietarioRepository;
 import com.uce.edu.demo.repository.IVehiculoRepository;
+import com.uce.edu.demo.repository.modelo.Matricula;
+import com.uce.edu.demo.repository.modelo.Propietario;
+import com.uce.edu.demo.repository.modelo.Vehiculo;
 
 @Service
 public class MatriculaGestorServiceImpl implements IMatriculaGestorService {
@@ -51,13 +51,13 @@ public class MatriculaGestorServiceImpl implements IMatriculaGestorService {
 			BigDecimal valorDescuento = valorMatricula.multiply(new BigDecimal(7)).divide(new BigDecimal(100));
 			valorMatricula = valorMatricula.subtract(valorDescuento);
 		}
-		Matricula matricula = new Matricula();
+		/*Matricula matricula = new Matricula();
 		matricula.setFechaMatricula(LocalDateTime.now());
 		matricula.setPropietario(pro);
 		matricula.setVehiculo(vehi);
 		matricula.setValorMatricula(valorMatricula);
 		
-		this.matriculaRepository.crear(matricula);
+		this.matriculaRepository.crear(matricula);*/
 	}
 
 }

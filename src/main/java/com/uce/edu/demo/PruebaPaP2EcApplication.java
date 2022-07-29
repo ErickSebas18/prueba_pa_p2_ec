@@ -23,9 +23,9 @@ public class PruebaPaP2EcApplication implements CommandLineRunner {
 
 	@Autowired
 	private IPropietarioService propietarioService;
-
-	//@Autowired
-	//private IMatriculaGestorService matriculaGestorService;
+	
+	@Autowired
+	private IMatriculaGestorService matriculaGestorService;
 
 	private static Logger logJava = Logger.getLogger(PruebaPaP2EcApplication.class);
 
@@ -42,7 +42,7 @@ public class PruebaPaP2EcApplication implements CommandLineRunner {
 		vehiculo.setPlaca("PIB1324");
 		vehiculo.setPrecio(new BigDecimal(20000));
 		vehiculo.setTipo("L");
-		//this.vehiculoService.insertar(vehiculo);
+		this.vehiculoService.insertar(vehiculo);
 		logJava.info("Punto 1.- Se ha insertado un vehículo: " + vehiculo);
 
 	
@@ -56,11 +56,11 @@ public class PruebaPaP2EcApplication implements CommandLineRunner {
 		pro.setNombre("Erick");
 		pro.setCedula("1561344312");
 		pro.setFechaNacimiento(LocalDateTime.now());
-		//this.propietarioService.crear(pro);
+		this.propietarioService.crear(pro);
 		logJava.info("Punto 3. - Se ha insertado un vehículo: " + pro);
 
-		/*System.out.println("\nPunto 4");
-		this.matriculaGestorService.generar(pro.getCedula(), vehiculo.getPlaca());*/
+		System.out.println("\nPunto 4");
+		this.matriculaGestorService.generar(pro.getCedula(), vehiculo.getPlaca());
 	}
 
 }
